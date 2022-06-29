@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{3A51BECC-6CFA-417D-A16A-30656C2F92B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWinApp", "SalesWinApp\SalesWinApp.csproj", "{8649F533-8F1D-4DEA-9A80-18FADA40E5D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3A51BECC-6CFA-417D-A16A-30656C2F92B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A51BECC-6CFA-417D-A16A-30656C2F92B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A51BECC-6CFA-417D-A16A-30656C2F92B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8649F533-8F1D-4DEA-9A80-18FADA40E5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8649F533-8F1D-4DEA-9A80-18FADA40E5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8649F533-8F1D-4DEA-9A80-18FADA40E5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8649F533-8F1D-4DEA-9A80-18FADA40E5D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F58D58FD-730A-4228-83F0-714284AE5594} = {5CEFC997-0F1F-4B18-9AAB-B3486C1B9141}
 		{3A51BECC-6CFA-417D-A16A-30656C2F92B1} = {D82BDBD1-283C-477A-9FB7-885B690C1A6C}
+		{8649F533-8F1D-4DEA-9A80-18FADA40E5D8} = {85A74277-9371-4AA2-BEB1-B1315ACAD7BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6E06E2F-5AD9-4C64-95E3-9DACD73061E6}
