@@ -21,15 +21,16 @@ namespace SalesWinApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text();
-            string password = txtPassword.Text();
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
             MemberDAO dao = new MemberDAO();
-            Member member= dao.CheckLogin(email,password);
-            if (member != null)
+            Member loginMember=dao.CheckLogin(email, password);
+            if (loginMember != null)
             {
                 frmMain frm = new frmMain();
                 frm.Show();
             }
+
         }
     }
 }
