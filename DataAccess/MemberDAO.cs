@@ -31,9 +31,10 @@ namespace DataAccess
             db.Member.Add(member);
         }
 
-        public void DeleteMember(Member member)
+        public void DeleteMember(string email)
         {
             using var db = new FStoreDBAssignmentContext();
+            Member member=db.Member.Where(x=>x.Email == email).FirstOrDefault();
             db.Member.Remove(member);
         }
         public void UpdateMember(Member member)

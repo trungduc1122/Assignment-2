@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessObject;
 
 namespace DataAccess.Repository
 {
-    internal interface IMemberRepository
+    public interface IMemberRepository
     {
+        public List<Member> GetMembers();
+        public void AddMember(Member member);
+        public void UpdateMember(Member member);
+        public void DeleteMember(string email);
     }
 }
