@@ -25,5 +25,22 @@ namespace DataAccess
             return list;
         }
 
+        public void AddMember(Member member)
+        {
+            using var db = new FStoreDBAssignmentContext();
+            db.Member.Add(member);
+        }
+
+        public void DeleteMember(Member member)
+        {
+            using var db = new FStoreDBAssignmentContext();
+            db.Member.Remove(member);
+        }
+        public void UpdateMember(Member member)
+        {
+            using var db = new FStoreDBAssignmentContext();
+            db.Member.Update(member);
+        }
+
     }
 }

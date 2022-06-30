@@ -23,5 +23,19 @@ namespace SalesWinApp
             panel1.Controls.Add(member);
             member.Show();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmOrder order=new frmOrder();
+            panel1.Controls.Add(order);
+            order.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmProduct product = new frmProduct();
+            panel1.Controls.Add(product);
+            product.Show();
+        }
     }
 }
