@@ -9,7 +9,7 @@ namespace DataAccess
 {
     public class MemberDAO
     {
-        Member checkLogin(string email,string password)
+        Member CheckLogin(string email,string password)
         {
             Member member = null;
             using var db = new FStoreDBAssignmentContext();
