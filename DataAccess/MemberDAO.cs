@@ -29,6 +29,7 @@ namespace DataAccess
         {
             using var db = new FStoreDBAssignmentContext();
             db.Member.Add(member);
+            db.SaveChanges();
         }
 
         public void DeleteMember(string email)
@@ -36,11 +37,13 @@ namespace DataAccess
             using var db = new FStoreDBAssignmentContext();
             Member member=db.Member.Where(x=>x.Email == email).FirstOrDefault();
             db.Member.Remove(member);
+            db.SaveChanges();
         }
         public void UpdateMember(Member member)
         {
             using var db = new FStoreDBAssignmentContext();
             db.Member.Update(member);
+            db.SaveChanges();
         }
 
     }
