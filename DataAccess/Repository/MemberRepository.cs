@@ -9,7 +9,8 @@ namespace DataAccess.Repository
 {
     public class MemberRepository : IMemberRepository
     {
-        public void AddMember(Member member)
+
+       public void AddMember(Member member)
         {
             throw new NotImplementedException();
         }
@@ -21,7 +22,9 @@ namespace DataAccess.Repository
 
         public List<Member> GetMembers()
         {
-            throw new NotImplementedException();
+            using var db = new FStoreDBAssignmentContext();
+            List<Member> list = new List<Member>();
+            list=db.Member.ToList();
         }
 
         public void UpdateMember(Member member)
