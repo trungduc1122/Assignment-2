@@ -25,6 +25,7 @@ namespace DataAccess.Repository
             using var db = new FStoreDBAssignmentContext();
             List<Member> list = new List<Member>();
             list=db.Member.ToList();
+            return list;
         }
 
         public void UpdateMember(Member member)
