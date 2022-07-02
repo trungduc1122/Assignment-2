@@ -10,27 +10,12 @@ namespace DataAccess.Repository
     public class MemberRepository : IMemberRepository
     {
 
-       public void AddMember(Member member)
-        {
-            throw new NotImplementedException();
-        }
+       public void AddMember(Member member)=>MemberDAO.Instance.AddMember(member);
 
-        public void DeleteMember(string email)
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteMember(Member member)=>MemberDAO.Instance.DeleteMember(member);
 
-        public List<Member> GetMembers()
-        {
-            using var db = new FStoreDBAssignmentContext();
-            List<Member> list = new List<Member>();
-            list=db.Member.ToList();
-            return list;
-        }
+        public List<Member> GetMembers() => MemberDAO.Instance.GetMembers();
 
-        public void UpdateMember(Member member)
-        {
-            throw new NotImplementedException();
-        }
+        public void UpdateMember(Member member)=>MemberDAO.Instance.UpdateMember(member);   
     }
 }

@@ -9,6 +9,29 @@ namespace DataAccess
 {
     public class MemberDAO
     {
+        private static MemberDAO instance = null;
+        private static readonly object instanceLock = new object();
+        public static MemberDAO Instance
+        {
+            get {
+                lock (instanceLock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new MemberDAO();
+                    }
+                }
+                return instance;
+            }
+        }
+
+        public Member GetMemberByEmail(string email)
+        {
+            Member member = null;
+            using var db = new FStoreDBAssignmentContext();
+            member=db.Member.SingleOrDefault(x => x.Email == email);
+            return member;
+        }
         public Member CheckLogin(string email,string password)
         {
             Member member = null;
@@ -27,23 +50,37 @@ namespace DataAccess
 
         public void AddMember(Member member)
         {
+            Member mem = GetMemberByEmail(member.Email);
+            if (mem != null) { 
             using var db = new FStoreDBAssignmentContext();
             db.Member.Add(member);
             db.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("member already exsit");
+            }
         }
 
-        public void DeleteMember(string email)
+        public void DeleteMember(Member member)
         {
-            using var db = new FStoreDBAssignmentContext();
-            Member member=db.Member.Where(x=>x.Email == email).FirstOrDefault();
-            db.Member.Remove(member);
-            db.SaveChanges();
+            Member mem = GetMemberByEmail(member.Email);
+            if (mem != null)
+            {
+                using var db = new FStoreDBAssignmentContext();
+                db.Member.Remove(member);
+                db.SaveChanges();
+            }
         }
         public void UpdateMember(Member member)
         {
-            using var db = new FStoreDBAssignmentContext();
-            db.Member.Update(member);
-            db.SaveChanges();
+            Member mem = GetMemberByEmail(member.Email);
+            if (mem != null)
+            {
+                using var db = new FStoreDBAssignmentContext();
+                db.Member.Update(member);
+                db.SaveChanges();
+            }
         }
 
     }
