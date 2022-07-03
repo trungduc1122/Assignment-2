@@ -44,7 +44,7 @@ namespace DataAccess
         {
             using var db=new FStoreDBAssignmentContext();
             Product product1 = GetProductById(product.ProductId);
-            if (product1 != null)
+            if (product1 == null)
             {
                 db.Product.Add(product);
                 db.SaveChanges();

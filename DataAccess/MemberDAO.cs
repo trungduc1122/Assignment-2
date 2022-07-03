@@ -51,7 +51,7 @@ namespace DataAccess
         public void AddMember(Member member)
         {
             Member mem = GetMemberByEmail(member.Email);
-            if (mem != null) { 
+            if (mem == null) { 
             using var db = new FStoreDBAssignmentContext();
             db.Member.Add(member);
             db.SaveChanges();
