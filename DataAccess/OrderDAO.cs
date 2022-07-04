@@ -9,6 +9,7 @@ namespace DataAccess
 {
     public class OrderDAO
     {
+
         private static OrderDAO instance = null;
         private static readonly object instanceLock = null;
         public static OrderDAO Instance
@@ -26,6 +27,14 @@ namespace DataAccess
             }
         }
 
+        public List<Order> GetOrders()
+        {
+            List<Order> order = null;
+            using var db = new FStoreDBAssignmentContext();
+            order = db.Order.ToList();
+            return order;
+        }
+
         public Order GetOrderById(int id)
         {
             Order order = null;
@@ -33,32 +42,41 @@ namespace DataAccess
             order = db.Order.SingleOrDefault(x => x.OrderId == id);
             return order;
         }
-        public void add(Order order)
+
+        public void AddOrder(Order order)
         {
+            using var db = new FStoreDBAssignmentContext();
             Order order1 = GetOrderById(order.OrderId);
-            if(order1== null)
+            if (order1 != null)
             {
-                using var db = new FStoreDBAssignmentContext();
                 db.Order.Add(order);
                 db.SaveChanges();
             }
+            else
+            {
+                throw new Exception("product already exsit");
+            }
         }
-        public void update(Order order)
+        public void UpdateOrder(Order order)
         {
+            using var db = new FStoreDBAssignmentContext();
             Order order1 = GetOrderById(order.OrderId);
             if (order1 != null)
             {
-                using var db = new FStoreDBAssignmentContext();
                 db.Order.Update(order);
                 db.SaveChanges();
             }
+            else
+            {
+                throw new Exception("product already exsit");
+            }
         }
-        public void delete(Order order)
+        public void DeleteOrder(Order order)
         {
+            using var db = new FStoreDBAssignmentContext();
             Order order1 = GetOrderById(order.OrderId);
             if (order1 != null)
             {
-                using var db = new FStoreDBAssignmentContext();
                 db.Order.Remove(order);
                 db.SaveChanges();
             }
